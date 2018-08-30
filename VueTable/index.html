@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue</title>
+
+    <!-- Подключаем стили CSS-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+    <link href="assets/css/modal-window.css" rel="stylesheet"></link>
+    <link href="assets/css/style.css" rel="stylesheet"></link>
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet"></link>
+</head>
+<body>
+    <div id="app">
+        Router result: <router-view></router-view>
+    </div>
+    
+    <div class="container col-md-12" id="index">    
+        <h3 class="vue-title">Таблица постов с сайта: l9971350.beget.tech</h3>
+        <!-- Модальное окно для создания нового поста-->
+
+    
+        <div><show-modal v-bind:showModal="showModal"></show-modal></div>
+        <div class="showModal">
+            <strong><a id="show-modal" @click="showModal = true">Добавить новый пост</a></strong>
+            <modal v-if="showModal" @close="showModal = false">
+            </modal>
+        </div>
+
+        <button v-on:click="show = !show" style="color: black;">Скрыть таблицу</button>
+        
+        <div v-if="show">
+            <app-table v-bind:posts="posts" v-bind:columns="columns" v-bind:options="options"></app-table>
+        </div>
+
+    </div>
+    <!-- Подключаем скрипты JS-->
+    <script src="assets/js/vue.min.js" type="text/javascript"></script>
+    <script src="assets/js/vue-router.min.js" type="text/javascript"></script>
+    <script src="assets/js/vue-resource.js" type="text/javascript"></script>
+    <script src="assets/js/vue-tables.js" type="text/javascript"></script>
+    <script src="assets/js/script.js" type="text/javascript"></script>
+    <script src="assets/js/router.js" type="text/javascript"></script>
+</body>
+</html>
